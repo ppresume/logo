@@ -17,15 +17,25 @@
 \draw[white, ultra thin, fill=\couleur!\thedensity] (A)--(B)--(C)--(D)--cycle;
 \foreach \i in {2,...,15}
   {\ifthenelse{\isodd{\i}}{%
-     \def\couleur{White}}{%
-     \def\couleur{ForestGreen}}
+     \def\couleur{ForestGreen}}{%
+     \def\couleur{White}}
    \pgfmathsetcounter{density}{\thedensity+13}
    \setcounter{density}{\thedensity}
+
    \path coordinate(T) at (A);
-   \path (A)--(B) coordinate[pos=.903] (A)
-            --(C) coordinate[pos=.903] (B)
-            --(D) coordinate[pos=.903] (C)
-            --(T) coordinate[pos=.903] (D);
-   \draw[white, ultra thin, fill=\couleur!\thedensity] (A)--(B)--(C)--(D)--cycle;}
+   \path (A)--(B) coordinate[pos=.903] (a)
+            --(C) coordinate[pos=.903] (b)
+            --(D) coordinate[pos=.903] (c)
+            --(T) coordinate[pos=.903] (d);
+
+   \draw[white, ultra thin, fill=\couleur!\thedensity] (a)--(B)--(b)--cycle;
+   \draw[white, ultra thin, fill=\couleur!\thedensity] (b)--(C)--(c)--cycle;
+   \draw[white, ultra thin, fill=\couleur!\thedensity] (c)--(D)--(d)--cycle;
+   \draw[white, ultra thin, fill=\couleur!\thedensity] (d)--(A)--(a)--cycle;
+
+   \path (a) coordinate(A)
+         (b) coordinate(B)
+         (c) coordinate(C)
+         (d) coordinate(D);}
 \end{tikzpicture}
 \end{document}
