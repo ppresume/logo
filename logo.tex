@@ -5,6 +5,7 @@
 
 \begin{document}
 \thispagestyle{empty}
+\definecolor{LightBlue}{rgb}{0.13,0.52,0.82}
 \newcounter{density}
 \setcounter{density}{60}
 \begin{tikzpicture}
@@ -17,9 +18,9 @@
 \draw[white, ultra thin, fill=\couleur!\thedensity] (A)--(B)--(C)--(D)--cycle;
 \foreach \i in {2,...,15}
   {\ifthenelse{\isodd{\i}}{%
-     \def\couleur{ForestGreen}}{%
+     \def\couleur{LightBlue}}{%
      \def\couleur{White}}
-   \pgfmathsetcounter{density}{\thedensity+13}
+   \pgfmathsetcounter{density}{\thedensity+4}
    \setcounter{density}{\thedensity}
 
    \path coordinate(T) at (A);
